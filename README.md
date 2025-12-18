@@ -1,46 +1,46 @@
-# My Greatests Of All Times (My GOATS)
+# My Greatest Of All Times (My GOATS)
 
-**Projet personnel** pour gérer et consulter mes œuvres préférées (films, séries, animés, documentaires, vidéos YouTube).
+**Personal project** to manage and browse my favorite works (movies, series, anime, documentaries, YouTube videos).
 
-## Fonctionnalités
+## Features
 
-- Liste consultable en **cartes** ou **tableau** avec toggle
-- **Recherche** par nom
-- **Filtres** par type, classe, genre, statut, plateforme
-- **Tri** par nom, année ou classe
-- Bouton **Refresh** pour recharger les données depuis `goats.json`
-- Liens cliquables vers vidéos externes (YouTube, etc.)
-- Gestion manuelle des données via `goats.json`
+- Browse list in **cards** or **table** view with toggle
+- **Search** by name
+- **Filters** by type, rating, genre, status, platform
+- **Sort** by name, year, or rating
+- **Refresh** button to reload data from `goats.json`
+- Clickable links to external videos (YouTube, etc.)
+- Manual data management via `goats.json`
 
-## Structure du projet
+## Project Structure
 
 ```
 my-goats/
 │
-├── index.html       ← page principale
-├── script.js        ← logique JS (render, filtres, toggle)
-├── goats.json       ← données des œuvres (lecture seule)
-├── style.css        ← optionnel si Tailwind CDN non utilisé
+├── index.html       <- main page
+├── script.js        <- JS logic (rendering, filters, toggle)
+├── goats.json       <- works data (read-only)
+├── style.css        <- optional if Tailwind CDN not used
 └── README.md
 ```
 
-## Installation & lancement
+## Installation & Running
 
-### Prérequis
+### Prerequisites
 
-- **Python 3** installé sur votre machine
-- Navigateur moderne (Chrome, Firefox, Edge…)
+- **Python 3** installed on your machine
+- Modern browser (Chrome, Firefox, Edge…)
 
-### Étapes
+### Steps
 
-1. Ouvrir un terminal dans le dossier du projet `my-goats`
-2. Lancer le serveur local :
+1. Open a terminal in the project folder `my-goats`
+2. Start the local server:
 
 ```bash
 python -m http.server 8000
 ```
 
-3. Ouvrir votre navigateur à l’adresse :
+3. Open your browser at:
 
 ```
 http://localhost:8000
