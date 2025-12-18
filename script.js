@@ -46,15 +46,16 @@ function renderCards() {
   filtered.sort((a,b)=>(b.annee||0)-(a.annee||0));
 
   if(!isTableView){
-    filtered.forEach(g => {
+    filtered.forEach((g,i) => {
       const card = document.createElement('div');
       card.className = "card bg-white rounded shadow p-4 fade-in";
+      card.style.animationDelay = `${i*50}ms`; // stagger
       card.innerHTML = `
-        <img src="${g.image||'https://via.placeholder.com/300x150?text='+encodeURIComponent(g.nom)}" class="w-full h-40 object-cover rounded mb-2">
+        <img src="${g.image||'https://via.placeholder.com/300x150.png?text=My+GOATS'}" class="w-full h-40 object-cover rounded mb-2">
         <h3 class="font-bold text-lg">${g.nom}</h3>
         <p class="text-sm text-gray-600">${g.type} | ${g.format} | ${g.annee||'N/A'}</p>
         <p class="text-sm">Saisons: ${g.saisons} | Episode: ${g.episode}</p>
-        <p class="text-sm">
+        <p class="text-sm mb-1">
           <span class="badge badge-${g.classe.toLowerCase().replace(' ','')}">${g.classe}</span>
           <span class="badge badge-${g.statut.toLowerCase().replace(' ','')}">${g.statut}</span>
         </p>
@@ -69,9 +70,10 @@ function renderCards() {
     thead.innerHTML = `<tr class="bg-gray-200"><th class="p-2">Nom</th><th>Type</th><th>Classe</th><th>Statut</th><th>Saisons</th><th>Épisode</th><th>Genres</th></tr>`;
     table.appendChild(thead);
     const tbody = document.createElement('tbody');
-    filtered.forEach(g=>{
+    filtered.forEach((g,i)=>{
       const tr = document.createElement('tr');
       tr.className="hover:bg-gray-100 transition-colors duration-200 fade-in";
+      tr.style.animationDelay = `${i*50}ms`;
       tr.innerHTML=`
         <td class="border px-2 py-1">${g.nom}</td>
         <td class="border px-2 py-1">${g.type}</td>
@@ -88,12 +90,10 @@ function renderCards() {
   }
 }
 
-document.getElementById('searchInput').addEventListener('input', renderCards);
-document.getElementById('filterType').addEventListener('change', renderCards);
-document.getElementById('filterClasse').addEventListener('change', renderCards);
-document.getElementById('filterStatut').addEventListener('change', renderCards);
-document.getElementById('filterPlateforme').addEventListener('change', renderCards);
-document.getElementById('filterTags').addEventListener('input', renderCards);
+// Événements
+['searchInput','filterType','filterClasse','filterStatut','filterPlateforme','filterTags'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', renderCards);
+});
 document.getElementById('refreshBtn').addEventListener('click', loadGoats);
 document.getElementById('toggleView').addEventListener('click', ()=>{
   isTableView=!isTableView;

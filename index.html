@@ -24,23 +24,23 @@
   .badge-abandon { background: #ef4444; }
 </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-100 flex flex-col min-h-screen">
 
-<!-- Header -->
-<header class="bg-white shadow p-4 flex justify-between items-center">
+<!-- Header horizontal moderne -->
+<header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+  <h1 class="font-bold text-2xl text-gray-800">My GOATS</h1>
   <div class="flex items-center gap-4">
-    <input type="text" id="searchInput" placeholder="Rechercher..." class="border rounded px-2 py-1 w-64">
+    <input type="text" id="searchInput" placeholder="Rechercher..." class="border rounded px-3 py-2 w-80 focus:outline-none focus:ring-2 focus:ring-blue-400">
     <button id="refreshBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Refresh</button>
+    <button id="toggleView" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Mode Tableau</button>
   </div>
-  <button id="toggleView" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-    Mode Tableau
-  </button>
 </header>
 
 <div class="flex flex-1 overflow-hidden">
-  <!-- Sidebar filtres -->
-  <aside class="w-64 bg-white p-4 overflow-y-auto border-r">
-    <h2 class="font-bold mb-2">Filtres</h2>
+
+  <!-- Sidebar verticale -->
+  <aside class="w-64 bg-white p-4 border-r overflow-y-auto flex flex-col">
+    <h2 class="font-bold text-xl mb-4">Filtres</h2>
     <div class="mb-4">
       <label class="block font-semibold">Type</label>
       <select id="filterType" class="w-full border rounded px-2 py-1"><option value="">Tous</option></select>
@@ -77,9 +77,10 @@
   </aside>
 
   <!-- Contenu principal -->
-  <main class="flex-1 p-4 overflow-y-auto">
-    <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  <main class="flex-1 p-6 overflow-y-auto">
+    <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </main>
+
 </div>
 
 <script src="script.js"></script>
